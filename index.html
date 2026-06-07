@@ -1,57 +1,62 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My Platform</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Discord Clone</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div id="authPage">
+<div id="auth">
 
-  <div class="logo">
-    <h1>MY PLATFORM</h1>
-  </div>
+  <div class="card">
+    <h1>Welcome Back!</h1>
 
-  <div class="container">
+    <input id="loginUser" placeholder="Username">
+    <input id="loginPass" type="password" placeholder="Password">
 
-    <div class="card">
-      <h2>Login</h2>
+    <button onclick="login()">Login</button>
 
-      <input id="loginUser" placeholder="Username">
-      <input id="loginPass" type="password" placeholder="Password">
-
-      <button onclick="login()">Log In</button>
-    </div>
-
-    <div class="card">
-      <h2>Sign Up</h2>
-
-      <input id="signupAge" placeholder="00/00/yyyy">
-      <select id="signupGender">
-        <option>Male</option>
-        <option>Female</option>
-      </select>
-
-      <input id="signupUser" placeholder="Username">
-      <input id="signupPass" type="password" placeholder="Password">
-
-      <button onclick="signup()">Sign Up</button>
-    </div>
-
+    <p>
+      Need an account?
+      <a href="#" onclick="showSignup()">Sign Up</a>
+    </p>
   </div>
 
 </div>
 
-<div id="homePage" style="display:none;">
+<div id="signupPage" style="display:none;">
 
-  <nav>
-    <h2>Home</h2>
-    <button onclick="logout()">Logout</button>
-  </nav>
+  <div class="card">
+    <h1>Create Account</h1>
 
-  <div class="homeContent">
-    <h1>Welcome!</h1>
-    <p id="welcomeText"></p>
+    <input id="birth" placeholder="dd/mm/yyyy">
+    <input id="newUser" placeholder="Username">
+    <input id="newPass" type="password" placeholder="Password">
+
+    <button onclick="signup()">Create Account</button>
+
+    <p>
+      Already have one?
+      <a href="#" onclick="showLogin()">Login</a>
+    </p>
+  </div>
+
+</div>
+
+<div id="app" style="display:none;">
+
+  <div class="sidebar">
+    <h2>DMs</h2>
+
+    <div class="dm">Friend 1</div>
+    <div class="dm">Friend 2</div>
+    <div class="dm">Friend 3</div>
+  </div>
+
+  <div class="chat">
+    <h1>Direct Messages</h1>
+    <p>Welcome!</p>
   </div>
 
 </div>
