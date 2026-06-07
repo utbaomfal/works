@@ -1,66 +1,72 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Discord Clone</title>
-<link rel="stylesheet" href="style.css">
+  <title>Discord Clone</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div id="auth">
-
-  <div class="card">
-    <h1>Welcome Back!</h1>
-
-    <input id="loginUser" placeholder="Username">
-    <input id="loginPass" type="password" placeholder="Password">
-
+<!-- LOGIN -->
+<div id="loginPage" class="center">
+  <div class="box">
+    <h2>Login</h2>
+    <input id="loginUser" placeholder="username">
+    <input id="loginPass" type="password" placeholder="password">
     <button onclick="login()">Login</button>
-
-    <p>
-      Need an account?
-      <a href="#" onclick="showSignup()">Sign Up</a>
-    </p>
+    <p onclick="showSignup()">Create account</p>
   </div>
-
 </div>
 
-<div id="signupPage" style="display:none;">
-
-  <div class="card">
-    <h1>Create Account</h1>
-
-    <input id="birth" placeholder="dd/mm/yyyy">
-    <input id="newUser" placeholder="Username">
-    <input id="newPass" type="password" placeholder="Password">
-
-    <button onclick="signup()">Create Account</button>
-
-    <p>
-      Already have one?
-      <a href="#" onclick="showLogin()">Login</a>
-    </p>
+<!-- SIGNUP -->
+<div id="signupPage" class="center hidden">
+  <div class="box">
+    <h2>Signup</h2>
+    <input id="suUser" placeholder="username">
+    <input id="suPass" type="password" placeholder="password">
+    <input id="suBirth" placeholder="dd/mm/yyyy">
+    <button onclick="signup()">Create</button>
+    <p onclick="showLogin()">Back</p>
   </div>
-
 </div>
 
-<div id="app" style="display:none;">
+<!-- APP -->
+<div id="app" class="hidden">
+  <div class="layout">
 
-  <div class="sidebar">
-    <h2>DMs</h2>
+    <!-- SERVERS -->
+    <div class="servers">
+      <div class="server">🏠</div>
+      <div class="server">+</div>
+    </div>
 
-    <div class="dm">Friend 1</div>
-    <div class="dm">Friend 2</div>
-    <div class="dm">Friend 3</div>
+    <!-- DM LIST -->
+    <div class="dms">
+      <h3>DMs</h3>
+      <div id="userList"></div>
+    </div>
+
+    <!-- CHAT -->
+    <div class="chat">
+      <div id="chatBox"></div>
+
+      <div class="input">
+        <input id="msg" placeholder="message...">
+        <button onclick="sendMsg()">Send</button>
+      </div>
+    </div>
+
+    <!-- PROFILE -->
+    <div class="profile">
+      <h3 id="meName"></h3>
+      <p id="status">🟢 Online</p>
+    </div>
+
   </div>
-
-  <div class="chat">
-    <h1>Direct Messages</h1>
-    <p>Welcome!</p>
-  </div>
-
 </div>
 
-<script src="script.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/app.js"></script>
+
 </body>
 </html>
