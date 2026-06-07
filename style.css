@@ -1,73 +1,65 @@
 body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:#232527;
-  color:white;
-}
-
-.logo{
-  text-align:center;
-  margin-top:40px;
-}
-
-.container{
-  display:flex;
-  justify-content:center;
-  gap:30px;
-  margin-top:40px;
-  flex-wrap:wrap;
+margin:0;
+font-family:Arial,sans-serif;
+background:#313338;
+color:white;
 }
 
 .card{
-  background:#393b3d;
-  padding:25px;
-  border-radius:12px;
-  width:300px;
+width:350px;
+margin:100px auto;
+background:#232428;
+padding:30px;
+border-radius:10px;
 }
 
-.card h2{
-  margin-top:0;
-}
-
-input,select{
-  width:100%;
-  box-sizing:border-box;
-  padding:12px;
-  margin-top:10px;
-  border:none;
-  border-radius:8px;
+input{
+width:100%;
+padding:12px;
+margin-top:10px;
+margin-bottom:10px;
+border:none;
+border-radius:5px;
+background:#1e1f22;
+color:white;
+box-sizing:border-box;
 }
 
 button{
-  width:100%;
-  padding:12px;
-  margin-top:12px;
-  border:none;
-  border-radius:8px;
-  background:#00a2ff;
-  color:white;
-  cursor:pointer;
-  font-weight:bold;
+width:100%;
+padding:12px;
+background:#5865F2;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
 }
 
-button:hover{
-  opacity:.9;
+a{
+color:#00a8fc;
 }
 
-nav{
-  background:#393b3d;
-  padding:15px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+#app{
+height:100vh;
+display:flex;
 }
 
-nav button{
-  width:auto;
-  padding:10px 20px;
+.sidebar{
+width:240px;
+background:#1e1f22;
+padding:15px;
 }
 
-.homeContent{
-  text-align:center;
-  margin-top:100px;
+.dm{
+padding:10px;
+background:#2b2d31;
+margin-top:5px;
+border-radius:5px;
+cursor:pointer;
+}
+
+.chat{
+flex:1;
+padding:20px;
+background:#313338;
 }
