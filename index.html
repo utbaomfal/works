@@ -1,13 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My Roblox Game</title>
+  <title>Login System</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <canvas id="game"></canvas>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="script.js"></script>
+<div id="loginPage">
+  <h1>Login</h1>
+
+  <input id="loginUser" placeholder="Username">
+  <input id="loginPass" type="password" placeholder="Password">
+
+  <button onclick="login()">Login</button>
+  <button onclick="showSignup()">Signup</button>
+</div>
+
+<div id="signupPage" style="display:none;">
+  <h1>Signup</h1>
+
+  <input id="age" placeholder="00/00/yyyy">
+  <input id="username" placeholder="Username">
+  <input id="password" type="password" placeholder="Password">
+
+  <select id="gender">
+    <option>Male</option>
+    <option>Female</option>
+  </select>
+
+  <button onclick="signup()">Create Account</button>
+  <button onclick="showLogin()">Back</button>
+</div>
+
+<div id="homePage" style="display:none;">
+  <h1>Homepage</h1>
+
+  <p>Welcome <span id="welcomeUser"></span></p>
+
+  <button onclick="logout()">Logout</button>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
