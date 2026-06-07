@@ -1,11 +1,17 @@
-let users = [
-{
+const defaultUser = {
 username:"test",
-password:"1234",
-birthday:"01/01/2000",
-gender:"Male"
+password:"1234"
+};
+
+function showSignup(){
+document.getElementById("auth").style.display="none";
+document.getElementById("signupPage").style.display="block";
 }
-];
+
+function showLogin(){
+document.getElementById("signupPage").style.display="none";
+document.getElementById("auth").style.display="block";
+}
 
 function login(){
 
@@ -15,78 +21,48 @@ document.getElementById("loginUser").value;
 const pass =
 document.getElementById("loginPass").value;
 
-const found = users.find(
-u => u.username === user &&
-u.password === pass
-);
+const saved =
+JSON.parse(localStorage.getItem("account"));
 
-if(found){
-goHome(found.username);
+if(
+(user === defaultUser.username &&
+pass === defaultUser.password)
+||
+(saved &&
+saved.username === user &&
+saved.password === pass)
+){
+openApp();
+}else{
+alert("Wrong login");
 }
-else{
-alert("Wrong username or password");
-}
-
 }
 
 function signup(){
 
-const birthday =
-document.getElementById("signupAge").value;
-
-const gender =
-document.getElementById("signupGender").value;
+const birth =
+document.getElementById("birth").value;
 
 const username =
-document.getElementById("signupUser").value;
+document.getElementById("newUser").value;
 
 const password =
-document.getElementById("signupPass").value;
+document.getElementById("newPass").value;
 
-if(
-!birthday ||
-!username ||
-!password
-){
-alert("Fill all fields");
-return;
-}
-
-const exists = users.find(
-u => u.username === username
-);
-
-if(exists){
-alert("Username already exists");
-return;
-}
-
-users.push({
-birthday,
-gender,
+localStorage.setItem(
+"account",
+JSON.stringify({
+birth,
 username,
 password
-});
+})
+);
 
-goHome(username);
-
+openApp();
 }
 
-function goHome(username){
-
-document.getElementById("authPage").style.display="none";
-
-document.getElementById("homePage").style.display="block";
-
-document.getElementById("welcomeText").textContent =
-"Logged in as " + username;
-
-}
-
-function logout(){
-
-document.getElementById("homePage").style.display="none";
-
-document.getElementById("authPage").style.display="block";
-
+function openApp(){
+document.getElementById("auth").style.display="none";
+document.getElementById("signupPage").style.display="none";
+document.getElementById("app").style.display="flex";
 }
