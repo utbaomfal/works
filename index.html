@@ -1,43 +1,59 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Login System</title>
+  <title>My Platform</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div id="loginPage">
-  <h1>Login</h1>
+<div id="authPage">
 
-  <input id="loginUser" placeholder="Username">
-  <input id="loginPass" type="password" placeholder="Password">
+  <div class="logo">
+    <h1>MY PLATFORM</h1>
+  </div>
 
-  <button onclick="login()">Login</button>
-  <button onclick="showSignup()">Signup</button>
-</div>
+  <div class="container">
 
-<div id="signupPage" style="display:none;">
-  <h1>Signup</h1>
+    <div class="card">
+      <h2>Login</h2>
 
-  <input id="age" placeholder="00/00/yyyy">
-  <input id="username" placeholder="Username">
-  <input id="password" type="password" placeholder="Password">
+      <input id="loginUser" placeholder="Username">
+      <input id="loginPass" type="password" placeholder="Password">
 
-  <select id="gender">
-    <option>Male</option>
-    <option>Female</option>
-  </select>
+      <button onclick="login()">Log In</button>
+    </div>
 
-  <button onclick="signup()">Create Account</button>
-  <button onclick="showLogin()">Back</button>
+    <div class="card">
+      <h2>Sign Up</h2>
+
+      <input id="signupAge" placeholder="00/00/yyyy">
+      <select id="signupGender">
+        <option>Male</option>
+        <option>Female</option>
+      </select>
+
+      <input id="signupUser" placeholder="Username">
+      <input id="signupPass" type="password" placeholder="Password">
+
+      <button onclick="signup()">Sign Up</button>
+    </div>
+
+  </div>
+
 </div>
 
 <div id="homePage" style="display:none;">
-  <h1>Homepage</h1>
 
-  <p>Welcome <span id="welcomeUser"></span></p>
+  <nav>
+    <h2>Home</h2>
+    <button onclick="logout()">Logout</button>
+  </nav>
 
-  <button onclick="logout()">Logout</button>
+  <div class="homeContent">
+    <h1>Welcome!</h1>
+    <p id="welcomeText"></p>
+  </div>
+
 </div>
 
 <script src="script.js"></script>
