@@ -1,98 +1,92 @@
-// Test account
-const defaultAccount = {
-  username: "test",
-  password: "1234"
-};
+let users = [
+{
+username:"test",
+password:"1234",
+birthday:"01/01/2000",
+gender:"Male"
+}
+];
 
-function showSignup() {
-  document.getElementById("loginPage").style.display = "none";
-  document.getElementById("signupPage").style.display = "block";
+function login(){
+
+const user =
+document.getElementById("loginUser").value;
+
+const pass =
+document.getElementById("loginPass").value;
+
+const found = users.find(
+u => u.username === user &&
+u.password === pass
+);
+
+if(found){
+goHome(found.username);
+}
+else{
+alert("Wrong username or password");
 }
 
-function showLogin() {
-  document.getElementById("signupPage").style.display = "none";
-  document.getElementById("loginPage").style.display = "block";
 }
 
-function openHome(username) {
-  document.getElementById("loginPage").style.display = "none";
-  document.getElementById("signupPage").style.display = "none";
-  document.getElementById("homePage").style.display = "block";
+function signup(){
 
-  document.getElementById("welcomeUser").textContent = username;
+const birthday =
+document.getElementById("signupAge").value;
+
+const gender =
+document.getElementById("signupGender").value;
+
+const username =
+document.getElementById("signupUser").value;
+
+const password =
+document.getElementById("signupPass").value;
+
+if(
+!birthday ||
+!username ||
+!password
+){
+alert("Fill all fields");
+return;
 }
 
-function login() {
-  const username = document.getElementById("loginUser").value;
-  const password = document.getElementById("loginPass").value;
+const exists = users.find(
+u => u.username === username
+);
 
-  // test account
-  if (
-    username === defaultAccount.username &&
-    password === defaultAccount.password
-  ) {
-    openHome(username);
-    return;
-  }
-
-  const users =
-    JSON.parse(localStorage.getItem("users")) || [];
-
-  const user = users.find(
-    u =>
-      u.username === username &&
-      u.password === password
-  );
-
-  if (user) {
-    openHome(user.username);
-  } else {
-    alert("Wrong username or password");
-  }
+if(exists){
+alert("Username already exists");
+return;
 }
 
-function signup() {
-  const age = document.getElementById("age").value;
-  const username = document.getElementById("username").value;
-  const password = document.getElementById("password").value;
-  const gender = document.getElementById("gender").value;
+users.push({
+birthday,
+gender,
+username,
+password
+});
 
-  if (
-    !age ||
-    !username ||
-    !password
-  ) {
-    alert("Fill all fields");
-    return;
-  }
+goHome(username);
 
-  const users =
-    JSON.parse(localStorage.getItem("users")) || [];
-
-  const exists = users.find(
-    u => u.username === username
-  );
-
-  if (exists) {
-    alert("Username already exists");
-    return;
-  }
-
-  users.push({
-    age,
-    username,
-    password,
-    gender
-  });
-
-  localStorage.setItem(
-    "users",
-    JSON.stringify(users)
-  );
-
-  openHome(username);
 }
 
-function logout() {
-  location.reload();
+function goHome(username){
+
+document.getElementById("authPage").style.display="none";
+
+document.getElementById("homePage").style.display="block";
+
+document.getElementById("welcomeText").textContent =
+"Logged in as " + username;
+
+}
+
+function logout(){
+
+document.getElementById("homePage").style.display="none";
+
+document.getElementById("authPage").style.display="block";
+
 }
